@@ -134,19 +134,11 @@ def kiiro(maximumok, minimumok, eredmeny):
 
 
 def float_(chain):
-    try:
-        return float(chain)
-    except ValueError:
-        if "," in chain:
-            return float(chain[:chain.index(",")] + "." + chain[chain.index(",") + 1:])
+    return round(float(chain.replace(",", ".")), 1)
 
 
 def str_(flt):
-    flt = str(flt)
-    if "." in flt:
-        return flt[:flt.index(".")] + "," + flt[flt.index(".") + 1:]
-    else:
-        return flt
+    return str(flt).replace(".", ",")
 
 
 def main():
